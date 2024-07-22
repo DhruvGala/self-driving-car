@@ -1,5 +1,5 @@
 class Car{
-    constructor(x,y,width,height){
+    constructor(x,y,width,height,controlType,maxSpeed=3){
         this.x=x;
         this.y=y;
         this.width=width;
@@ -13,7 +13,7 @@ class Car{
         this.damaged=false;
 
         if(controlType!="DUMMY"){
-        this.sensor=new Sensor(this);
+            this.sensor=new Sensor(this);
         }
         this.controls=new Controls(controlType);
     }
@@ -118,6 +118,6 @@ class Car{
         ctx.fill();
 
         if(this.sensor)
-        this.sensor.draw(ctx);
+            this.sensor.draw(ctx);
     }
 }
