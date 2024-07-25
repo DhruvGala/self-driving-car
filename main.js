@@ -17,7 +17,9 @@ if(localStorage.getItem("bestBrian")){
 }
 
 const traffic=[
-    new Car(road.getLaneCenter(1),-100,30,50,"DUMMY",2)
+    new Car(road.getLaneCenter(1),-100,30,50,"DUMMY",2),
+    new Car(road.getLaneCenter(0),-300,30,50,"DUMMY",2),
+    new Car(road.getLaneCenter(2),-300,30,50,"DUMMY",2)
 ];
 
 
@@ -48,6 +50,7 @@ function animate(time){
     for(let i=0;i<cars.length;i++){
         cars[i].update(road.borders,traffic);
     }
+    //fitness function
     bestCar=cars.find(
         c=>c.y==Math.min(
             ...cars.map(c=>c.y)
